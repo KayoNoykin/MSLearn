@@ -1,11 +1,10 @@
-﻿string permission = "Admin|Manager";
-int level = 55;
+﻿bool flag = true;
+int value = 0;
 
-if (permission.Contains("Admin"))
+if (flag)
 {
-    Console.WriteLine($"Welcome, {(level > 55 ? "Super " : "")}Admin user");
+    Console.WriteLine($"Inside the code block: {value}");
 }
-else if (permission.Contains("Manager"))
-{
-    Console.WriteLine(level >= 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.");
-}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
