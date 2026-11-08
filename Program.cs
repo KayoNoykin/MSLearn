@@ -1,19 +1,28 @@
-﻿for (int i = 1; i <= 100; i++)
+﻿Random random = new Random();
+int atk;
+int heroHP = 10;
+int monsterHP = 10;
+
+while (heroHP > 0 && monsterHP > 0)
 {
-    if ((i % 3) == 0 && (i % 5) == 0)
+    // hero attacks
+    atk = random.Next(1, 11);
+    monsterHP -= atk;
+    Console.WriteLine($"Monster was damaged and lost {atk} health and now has {monsterHP} health.");
+    if (monsterHP <= 0)
     {
-        Console.WriteLine($"FizzBuzz - {i}");
+        Console.WriteLine("Hero wins!");
+        break;
     }
-    else if ((i % 3) == 0)
+    // monster attacks
+    atk = random.Next(1, 11);
+    heroHP -= atk;
+    Console.WriteLine($"Hero was damage and lost {atk} health and now has {heroHP} health.");
+    if (heroHP <= 0)
     {
-        Console.WriteLine($"Fizz - {i}");
+        Console.WriteLine("Monster wins!");
+        break;
     }
-    else if ((i % 5) == 0)
-    {
-        Console.WriteLine($"Buzz - {i}");
-    }
-    else
-    {
-        Console.WriteLine(i);
-    }
+    
+
 }
