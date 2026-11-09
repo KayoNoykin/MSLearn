@@ -1,28 +1,90 @@
-﻿Random random = new Random();
-int atk;
-int heroHP = 10;
-int monsterHP = 10;
+﻿// Project 1
 
-while (heroHP > 0 && monsterHP > 0)
+/* string? readResult;
+int numericValue = 0;
+bool validNumber = false;
+
+Console.WriteLine("Enter an integer between 5 and 10");
+do
 {
-    // hero attacks
-    atk = random.Next(1, 11);
-    monsterHP -= atk;
-    Console.WriteLine($"Monster was damaged and lost {atk} health and now has {monsterHP} health.");
-    if (monsterHP <= 0)
+    readResult = Console.ReadLine();
+    if (readResult != null)
     {
-        Console.WriteLine("Hero wins!");
-        break;
+        validNumber = int.TryParse(readResult, out numericValue);
+        if (validNumber == false)
+        {
+            Console.WriteLine("Not an integer, please try again");
+            continue;
+        }
+        if (numericValue < 5 || numericValue > 10)
+        {
+            Console.WriteLine($"{numericValue} is not between 5 and 10, please try again");
+            validNumber = false;
+            continue;
+        }
+        if (numericValue >= 5 && numericValue <= 10)
+        {
+            validNumber = true;
+        }
     }
-    // monster attacks
-    atk = random.Next(1, 11);
-    heroHP -= atk;
-    Console.WriteLine($"Hero was damage and lost {atk} health and now has {heroHP} health.");
-    if (heroHP <= 0)
-    {
-        Console.WriteLine("Monster wins!");
-        break;
-    }
-    
+} while (validNumber == false);
 
+Console.WriteLine("Value accepted"); */
+
+// Project 2
+
+/* string? readResult;
+bool validEntry = false;
+
+Console.WriteLine("Please input your role");
+
+do
+{
+    Console.WriteLine("Valid roles are:");
+    Console.WriteLine("Administrator | Manager | User");
+    readResult = Console.ReadLine();
+    if (readResult != null)
+    {
+        string? formattedResult = readResult.Trim().ToLower();
+        if (formattedResult != "administrator" && formattedResult != "manager" && formattedResult !=  "user")
+        {
+            Console.WriteLine($"The role name that you entered, \"{readResult.Trim()}\" is not valid. Plase try again.");
+            validEntry = false;
+            continue;
+        }
+        if (formattedResult == "administrator" || formattedResult == "manager" || formattedResult == "user")
+        {
+            validEntry = true;
+            continue;
+        }
+    }
+} while (validEntry == false);
+
+if (readResult != null)
+Console.WriteLine($"Your input value \"{readResult.Trim()}\" has been accepted."); */
+
+// Project 3
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+
+int periodLocation;
+string mySentence;
+
+foreach (string s in myStrings)
+{
+    string myString = s;
+    periodLocation = myString.IndexOf(".");
+    while (periodLocation != -1)
+    {
+        mySentence = myString.Remove(periodLocation);
+
+        myString = myString.Substring(periodLocation + 1).Trim();
+
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
+    }
+
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
 }
