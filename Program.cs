@@ -1,15 +1,13 @@
-﻿using System.IO.Pipelines;
-
-string pangram = "The quick brown fox jumps over the lazy dog";
-string[] words = pangram.Split(' ');
-string[] reversedWords = new string[words.Length];
-for (int i = 0; i < words.Length; i++)
+﻿string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+string[] orderIDs = orderStream.Split(',');
+Array.Sort(orderIDs);
+foreach (var order in orderIDs)
 {
-    char[] wordArray = words[i].ToCharArray();
-    Array.Reverse(wordArray);
-    string reversedWord = new string(wordArray);
-    reversedWords[i] = reversedWord;
+    if (order.Length != 4){
+        Console.WriteLine($"{order}   - Error");
+    }
+    else
+    {
+        Console.WriteLine(order);
+    }
 }
-
-string result = string.Join(" ", reversedWords);
-Console.WriteLine(result);
