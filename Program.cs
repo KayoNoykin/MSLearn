@@ -1,26 +1,26 @@
-﻿// int invoiceNumber = 1201;
-// decimal productShares = 25.4568m;
-// decimal subtotal = 2750.00m;
-// decimal taxPercentage = .15825m;
-// decimal total = 3185.19m;
+﻿string customerName = "Ms. Barros";
 
-// Console.WriteLine($"Invoice Number: {invoiceNumber}");
-// Console.WriteLine($"   Shares: {productShares:N3} Product");
-// Console.WriteLine($"     Sub Total: {subtotal:C}");
-// Console.WriteLine($"           Tax: {taxPercentage:P2}");
-// Console.WriteLine($"     Total Billed: {total:C}");
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
 
-// string input = "Pad this";
-// Console.WriteLine(input.PadLeft(12, '-'));
-// Console.WriteLine(input.PadRight(12, '-'));
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
 
-string paymentId = "76PC";
-string payeeName = "Mr. Stephen Ortega";
-string paymentAmount = "£5,000.00";
+Console.WriteLine($"Dear {customerName},");
+Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
 
-var formattedLine = paymentId.PadRight(6);
-formattedLine += payeeName.PadRight(24);
-formattedLine += paymentAmount.PadLeft(10);
+Console.WriteLine($"Currently, you own {currentShares:N2} shares at a return of {currentReturn:P2}.\n");
 
-Console.WriteLine("1234567890123456789012345678901234567890");
-Console.WriteLine(formattedLine);
+Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, you potential profit would be {newProfit:C}.\n");
+
+Console.WriteLine("Here's a quick comparison:\n");
+
+//yes I cheated a bit sue me
+string comparisonMessage = $"{currentProduct.PadRight(24)}{"12.75%".PadRight(8)}{currentProfit:C}\n{newProduct.PadRight(24)}{"13.13%".PadRight(8)}{newProfit:C}";
+
+// Your logic here
+
+Console.WriteLine(comparisonMessage);
