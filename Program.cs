@@ -1,26 +1,14 @@
-﻿const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+﻿Console.WriteLine("Generating random numbers:");
+DisplayRandomNumbers();
 
-string quantity = "";
-string output = "";
+void DisplayRandomNumbers()
+{
+    Random random = new Random();
 
-// Your work here
+    for (int i = 0;  i < 5; i++)
+    {
+        Console.Write($"{random.Next(1, 100)} ");
+    }
 
-//quantity
-const string openSpan = "<span>";
-const string closeSpan = "</span>";
-int quantityStart = input.IndexOf(openSpan);
-int quantityEnd = input.IndexOf(closeSpan);
-quantityStart += openSpan.Length;
-int quantityLength = quantityEnd - quantityStart;
-quantity = input.Substring(quantityStart, quantityLength);
-
-//output
-const string openDiv = "<div>";
-const string closeDiv = "</div>";
-const string trade = "&trade";
-const string reg = "&reg";
-output = input;
-output = output.Replace(openDiv, "").Replace(closeDiv, "").Replace(trade, reg);
-
-Console.WriteLine(quantity);
-Console.WriteLine(output);
+    Console.WriteLine();
+}
