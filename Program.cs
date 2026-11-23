@@ -1,24 +1,26 @@
-﻿// string message = "Find what is (inside the parentheses)";
+﻿const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
-// int openingPosition = message.IndexOf('(');
-// int closingPosition = message.IndexOf(')');
+string quantity = "";
+string output = "";
 
-// // Console.WriteLine(openingPosition);
-// // Console.WriteLine(closingPosition);
+// Your work here
 
-// openingPosition += 1;
-
-// int length = closingPosition - openingPosition;
-// Console.WriteLine(message.Substring(openingPosition, length));
-
-string message = "What is the value <span>between the tags</span>?";
-
+//quantity
 const string openSpan = "<span>";
 const string closeSpan = "</span>";
+int quantityStart = input.IndexOf(openSpan);
+int quantityEnd = input.IndexOf(closeSpan);
+quantityStart += openSpan.Length;
+int quantityLength = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, quantityLength);
 
-int openingPosition = message.IndexOf(openSpan);
-int closingPosition = message.IndexOf(closeSpan);
+//output
+const string openDiv = "<div>";
+const string closeDiv = "</div>";
+const string trade = "&trade";
+const string reg = "&reg";
+output = input;
+output = output.Replace(openDiv, "").Replace(closeDiv, "").Replace(trade, reg);
 
-openingPosition += openSpan.Length;
-int length = closingPosition - openingPosition;
-Console.WriteLine(message.Substring(openingPosition, length));
+Console.WriteLine(quantity);
+Console.WriteLine(output);
