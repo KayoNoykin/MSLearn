@@ -1,26 +1,24 @@
-﻿string customerName = "Ms. Barros";
+﻿// string message = "Find what is (inside the parentheses)";
 
-string currentProduct = "Magic Yield";
-int currentShares = 2975000;
-decimal currentReturn = 0.1275m;
-decimal currentProfit = 55000000.0m;
+// int openingPosition = message.IndexOf('(');
+// int closingPosition = message.IndexOf(')');
 
-string newProduct = "Glorious Future";
-decimal newReturn = 0.13125m;
-decimal newProfit = 63000000.0m;
+// // Console.WriteLine(openingPosition);
+// // Console.WriteLine(closingPosition);
 
-Console.WriteLine($"Dear {customerName},");
-Console.WriteLine($"As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.\n");
+// openingPosition += 1;
 
-Console.WriteLine($"Currently, you own {currentShares:N2} shares at a return of {currentReturn:P2}.\n");
+// int length = closingPosition - openingPosition;
+// Console.WriteLine(message.Substring(openingPosition, length));
 
-Console.WriteLine($"Our new product, {newProduct} offers a return of {newReturn:P2}. Given your current volume, you potential profit would be {newProfit:C}.\n");
+string message = "What is the value <span>between the tags</span>?";
 
-Console.WriteLine("Here's a quick comparison:\n");
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
 
-//yes I cheated a bit sue me
-string comparisonMessage = $"{currentProduct.PadRight(24)}{"12.75%".PadRight(8)}{currentProfit:C}\n{newProduct.PadRight(24)}{"13.13%".PadRight(8)}{newProfit:C}";
+int openingPosition = message.IndexOf(openSpan);
+int closingPosition = message.IndexOf(closeSpan);
 
-// Your logic here
-
-Console.WriteLine(comparisonMessage);
+openingPosition += openSpan.Length;
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
