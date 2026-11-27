@@ -1,76 +1,36 @@
-﻿using System;
+﻿/* 
+This code uses a names array and corresponding methods to display
+greeting messages
+*/
 
-Random random = new Random();
+string[] names = new string[] { "Sophia", "Andrew", "AllGreetings" };
 
-string[] pettingZoo =
+string messageText = "";
+
+foreach (string name in names)
 {
-    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese",
-    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws",
-    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
-};
-
-// - There will be three visiting schools
-//     - School A has six visiting groups (the default number)
-//     - School B has three visiting groups
-//     - School C has two visiting groups
-
-// - For each visiting school, perform the following tasks
-//     - Randomize the animals
-//     - Assign the animals to the correct number of groups
-//     - Print the school name
-//     - Print the animal groups
-
-PlanSchoolVisit("School A");
-PlanSchoolVisit("School B", 3);
-PlanSchoolVisit("School C", 2);
-
-void PlanSchoolVisit(string schoolName, int groups = 6)
-{
-    RandomizeAnimals();
-    string[,] group = AssignGroup(groups);
-    Console.WriteLine(schoolName);
-    PrintGroup(group);
+    if (name == "Sophia")
+        messageText = SophiaMessage();
+    else if (name == "Andrew")
+        messageText = AndrewMessage();
+    else if (name == "AllGreetings")
+    {
+        messageText = SophiaMessage();
+        messageText = messageText + "\n\r" + AndrewMessage();
+    }
+    
+    Console.WriteLine(messageText + "\n\r");
 }
 
-void RandomizeAnimals()
-{
-    for (int i = 0; i < pettingZoo.Length; i++)
-    {
-        int r = random.Next(i, pettingZoo.Length);
+bool pauseCode = true;
+while (pauseCode == true);
 
-        // string temp = pettingZoo[i];
-        // pettingZoo[i] = pettingZoo[r];
-        // pettingZoo[r] = temp;
-        (pettingZoo[i], pettingZoo[r]) = (pettingZoo[r], pettingZoo[i]);
-    }
+static string SophiaMessage()
+{
+    return "Hello, my name is Sophia.";
 }
 
-string[,] AssignGroup(int groups = 6)
+static string AndrewMessage()
 {
-    string[,] result = new string[groups, pettingZoo.Length / groups];
-
-    int start = 0;
-
-    for (int i = 0; i < groups; i++)
-    {
-        for (int j = 0; j < result.GetLength(1); j++)
-        {
-            result[i, j] = pettingZoo[start++];
-        }
-    }
-
-    return result;
-}
-
-void PrintGroup(string[,] group)
-{
-    for (int i = 0; i < group.GetLength(0); i++)
-    {
-        Console.Write($"Group {i + 1}: ");
-        for (int j = 0; j < group.GetLength(1); j++)
-        {
-            Console.Write($"{group[i,j]}  ");
-        }
-        Console.WriteLine();
-    }
+    return "Hi, my name is Andrew. Good to meet you.";
 }
